@@ -16,7 +16,7 @@
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(29.869% 0.15883 285.246);
-  --accent: oklch(0.97 0 0);
+  --accent: oklch(39.815% 0.1884 263.984);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
@@ -122,4 +122,37 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ------------------------------------------------------------------
+   FORCE SIDEBAR LINK COLORS (HOVER + ACTIVE) TO TEAL
+   This targets all links inside the left sidebar nav.
+-------------------------------------------------------------------*/
+
+aside nav a {
+  border-radius: 0.75rem;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+/* Hover state */
+aside nav a:hover {
+  background-color: #0A5C63 !important;
+  color: #ffffff !important;
+}
+
+/* Active/selected state:
+   - if your code adds .active
+   - or if Next/Link sets aria-current="page"
+*/
+aside nav a.active,
+aside nav a[aria-current="page"] {
+  background-color: #0A5C63 !important;
+  color: #ffffff !important;
+}
+/* FINAL FIX — FORCE OVERRIDE SIDEBAR COLORS */
+.hover\:bg-sidebar-accent:hover,
+.bg-sidebar-accent,
+.bg-sidebar-primary {
+    background-color: #0A5C63 !important;
+    color: white !important;
 }

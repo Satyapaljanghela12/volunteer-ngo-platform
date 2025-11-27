@@ -94,120 +94,19 @@ function Button({ className, variant, size, asChild = false, ...props }) {
 "[project]/lib/supabase/client.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// Mock Supabase client for demonstration
-// Returns empty data for all queries to prevent errors
 __turbopack_context__.s([
     "createClient",
     ()=>createClient
 ]);
-class QueryBuilder {
-    tableName;
-    constructor(tableName){
-        this.tableName = tableName;
-    }
-    select(columns = "*") {
-        return {
-            eq: (column, value)=>({
-                    order: (column, options)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }),
-                    in: (column, values)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }),
-                    then: (callback)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }).then(callback)
-                }),
-            in: (column, values)=>({
-                    order: (column, options)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }),
-                    then: (callback)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }).then(callback)
-                }),
-            order: (column, options)=>Promise.resolve({
-                    data: [],
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: [],
-                    error: null
-                }).then(callback)
-        };
-    }
-    insert(data) {
-        return {
-            select: ()=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }).then(callback)
-        };
-    }
-    update(data) {
-        return {
-            eq: (column, value)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }).then(callback)
-        };
-    }
-    delete() {
-        return {
-            eq: (column, value)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }).then(callback)
-        };
-    }
-}
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@supabase/ssr/dist/module/index.js [app-ssr] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$createBrowserClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@supabase/ssr/dist/module/createBrowserClient.js [app-ssr] (ecmascript)");
+;
 function createClient() {
-    return {
-        from: (tableName)=>new QueryBuilder(tableName),
-        auth: {
-            getUser: ()=>Promise.resolve({
-                    data: {
-                        user: null
-                    },
-                    error: null
-                }),
-            getSession: ()=>Promise.resolve({
-                    data: {
-                        session: null
-                    },
-                    error: null
-                }),
-            signInWithPassword: (credentials)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            signUp: (credentials)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            signOut: ()=>Promise.resolve({
-                    data: null,
-                    error: null
-                })
-        }
-    };
+    const supabaseUrl = ("TURBOPACK compile-time value", "https://ttdpyppxgyobluzxqoeq.supabase.co");
+    const supabaseAnonKey = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0ZHB5cHB4Z3lvYmx1enhxb2VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxMDAxMDEsImV4cCI6MjA3OTY3NjEwMX0.NegdAitT6gnfsMruyy-ye0DhLUOBdq6NJ62gVfIRTTU");
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$createBrowserClient$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createBrowserClient"])(supabaseUrl, supabaseAnonKey);
 }
 }),
 "[project]/app/dashboard/layout.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {

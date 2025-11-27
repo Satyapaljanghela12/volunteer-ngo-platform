@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function SignupPage() {
   const [email, setEmail] = useState("")
@@ -23,8 +23,22 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
+  // Redirect to NGO registration when NGO is selected
+  useEffect(() => {
+    if (userType === "ngo") {
+      router.push("/auth/signup/ngo")
+    }
+  }, [userType, router])
+
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Prevent submission if NGO is selected (should redirect instead)
+    if (userType === "ngo") {
+      router.push("/auth/signup/ngo")
+      return
+    }
+
     const supabase = createClient()
     setIsLoading(true)
     setError(null)
@@ -101,6 +115,19 @@ export default function SignupPage() {
                       <SelectItem value="ngo">NGO Representative</SelectItem>
                     </SelectContent>
                   </Select>
+                  {userType === "ngo" && (
+                    <div className="rounded-lg bg-primary/5 border border-primary/20 p-3">
+                      <p className="text-sm font-medium text-foreground mb-1">NGO Registration</p>
+                      <p className="text-xs text-muted-foreground mb-2">
+                        NGOs require a comprehensive registration process with document verification.
+                      </p>
+                      <Link href="/auth/signup/ngo">
+                        <Button type="button" size="sm" className="w-full">
+                          Continue to NGO Registration
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>

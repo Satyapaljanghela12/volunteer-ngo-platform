@@ -2,120 +2,20 @@
 "[project]/lib/supabase/client.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// Mock Supabase client for demonstration
-// Returns empty data for all queries to prevent errors
 __turbopack_context__.s([
     "createClient",
     ()=>createClient
 ]);
-class QueryBuilder {
-    tableName;
-    constructor(tableName){
-        this.tableName = tableName;
-    }
-    select(columns = "*") {
-        return {
-            eq: (column, value)=>({
-                    order: (column, options)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }),
-                    in: (column, values)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }),
-                    then: (callback)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }).then(callback)
-                }),
-            in: (column, values)=>({
-                    order: (column, options)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }),
-                    then: (callback)=>Promise.resolve({
-                            data: [],
-                            error: null
-                        }).then(callback)
-                }),
-            order: (column, options)=>Promise.resolve({
-                    data: [],
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: [],
-                    error: null
-                }).then(callback)
-        };
-    }
-    insert(data) {
-        return {
-            select: ()=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }).then(callback)
-        };
-    }
-    update(data) {
-        return {
-            eq: (column, value)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }).then(callback)
-        };
-    }
-    delete() {
-        return {
-            eq: (column, value)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            then: (callback)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }).then(callback)
-        };
-    }
-}
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@supabase/ssr/dist/module/index.js [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$createBrowserClient$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@supabase/ssr/dist/module/createBrowserClient.js [app-client] (ecmascript)");
+;
 function createClient() {
-    return {
-        from: (tableName)=>new QueryBuilder(tableName),
-        auth: {
-            getUser: ()=>Promise.resolve({
-                    data: {
-                        user: null
-                    },
-                    error: null
-                }),
-            getSession: ()=>Promise.resolve({
-                    data: {
-                        session: null
-                    },
-                    error: null
-                }),
-            signInWithPassword: (credentials)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            signUp: (credentials)=>Promise.resolve({
-                    data: null,
-                    error: null
-                }),
-            signOut: ()=>Promise.resolve({
-                    data: null,
-                    error: null
-                })
-        }
-    };
+    const supabaseUrl = ("TURBOPACK compile-time value", "https://ttdpyppxgyobluzxqoeq.supabase.co");
+    const supabaseAnonKey = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0ZHB5cHB4Z3lvYmx1enhxb2VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxMDAxMDEsImV4cCI6MjA3OTY3NjEwMX0.NegdAitT6gnfsMruyy-ye0DhLUOBdq6NJ62gVfIRTTU");
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$createBrowserClient$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createBrowserClient"])(supabaseUrl, supabaseAnonKey);
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -433,7 +333,7 @@ function LoginPage() {
                 email,
                 password,
                 options: {
-                    emailRedirectTo: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || `${window.location.origin}/dashboard`
+                    emailRedirectTo: ("TURBOPACK compile-time value", "http://localhost:3000/dashboard") || `${window.location.origin}/dashboard`
                 }
             });
             if (error) throw error;
@@ -447,13 +347,15 @@ function LoginPage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex min-h-svh w-full items-center justify-center p-6 md:p-10",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "w-full max-w-sm",
+            className: "w-full max-w-md",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                className: "border-border/50 shadow-lg",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
+                        className: "space-y-1 pb-6",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                className: "text-2xl",
+                                className: "text-2xl font-bold",
                                 children: "Login"
                             }, void 0, false, {
                                 fileName: "[project]/app/auth/login/page.tsx",
@@ -478,13 +380,14 @@ function LoginPage() {
                             onSubmit: handleLogin,
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex flex-col gap-6",
+                                    className: "flex flex-col gap-5",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "grid gap-2",
+                                            className: "space-y-2",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                                     htmlFor: "email",
+                                                    className: "text-sm font-medium",
                                                     children: "Email"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/auth/login/page.tsx",
@@ -497,7 +400,8 @@ function LoginPage() {
                                                     placeholder: "you@example.com",
                                                     required: true,
                                                     value: email,
-                                                    onChange: (e)=>setEmail(e.target.value)
+                                                    onChange: (e)=>setEmail(e.target.value),
+                                                    className: "h-11"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/auth/login/page.tsx",
                                                     lineNumber: 57,
@@ -510,14 +414,15 @@ function LoginPage() {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "grid gap-2",
+                                            className: "space-y-2",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                                     htmlFor: "password",
+                                                    className: "text-sm font-medium",
                                                     children: "Password"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/auth/login/page.tsx",
-                                                    lineNumber: 67,
+                                                    lineNumber: 68,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -525,34 +430,42 @@ function LoginPage() {
                                                     type: "password",
                                                     required: true,
                                                     value: password,
-                                                    onChange: (e)=>setPassword(e.target.value)
+                                                    onChange: (e)=>setPassword(e.target.value),
+                                                    className: "h-11"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/auth/login/page.tsx",
-                                                    lineNumber: 68,
+                                                    lineNumber: 69,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/auth/login/page.tsx",
-                                            lineNumber: 66,
+                                            lineNumber: 67,
                                             columnNumber: 17
                                         }, this),
-                                        error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-sm text-destructive",
-                                            children: error
+                                        error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "rounded-lg bg-destructive/10 border border-destructive/20 p-3",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-sm text-destructive",
+                                                children: error
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/auth/login/page.tsx",
+                                                lineNumber: 80,
+                                                columnNumber: 21
+                                            }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/auth/login/page.tsx",
-                                            lineNumber: 76,
-                                            columnNumber: 27
+                                            lineNumber: 79,
+                                            columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                             type: "submit",
-                                            className: "w-full",
+                                            className: "w-full h-11",
                                             disabled: isLoading,
                                             children: isLoading ? "Signing in..." : "Sign In"
                                         }, void 0, false, {
                                             fileName: "[project]/app/auth/login/page.tsx",
-                                            lineNumber: 77,
+                                            lineNumber: 83,
                                             columnNumber: 17
                                         }, this)
                                     ]
@@ -562,23 +475,29 @@ function LoginPage() {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "mt-4 text-center text-sm",
+                                    className: "mt-6 text-center text-sm",
                                     children: [
-                                        "Don't have an account?",
-                                        " ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-muted-foreground",
+                                            children: "Don't have an account? "
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/auth/login/page.tsx",
+                                            lineNumber: 88,
+                                            columnNumber: 17
+                                        }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/auth/signup",
-                                            className: "underline underline-offset-4",
+                                            className: "font-medium text-primary hover:underline underline-offset-4",
                                             children: "Sign up"
                                         }, void 0, false, {
                                             fileName: "[project]/app/auth/login/page.tsx",
-                                            lineNumber: 83,
+                                            lineNumber: 89,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/auth/login/page.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 87,
                                     columnNumber: 15
                                 }, this)
                             ]

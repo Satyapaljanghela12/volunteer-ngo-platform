@@ -53,75 +53,83 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-8 p-6 md:p-8">
       {/* Welcome Section */}
-      <div>
+      <div className="space-y-2">
         <h1 className="text-3xl font-bold text-foreground">Welcome back, {profile?.first_name || "Volunteer"}!</h1>
-        <p className="mt-2 text-muted-foreground">Here's an overview of your volunteering journey</p>
+        <p className="text-muted-foreground">Here's an overview of your volunteering journey</p>
       </div>
 
       {/* Stats Cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Hours Contributed</CardTitle>
-            <Clock className="h-4 w-4 text-muted-foreground" />
+        <Card className="border-border/50">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Hours Contributed</CardTitle>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+              <Clock className="h-4 w-4 text-primary" />
+            </div>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold">{stats.hoursContributed}</p>
-            <p className="text-xs text-muted-foreground">This month</p>
+            <p className="text-3xl font-bold">{stats.hoursContributed}</p>
+            <p className="text-xs text-muted-foreground mt-1">This month</p>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Applications</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
+        <Card className="border-border/50">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Applications</CardTitle>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10">
+              <Users className="h-4 w-4 text-accent" />
+            </div>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold">{stats.opportunitiesApplied}</p>
-            <p className="text-xs text-muted-foreground">Total submitted</p>
+            <p className="text-3xl font-bold">{stats.opportunitiesApplied}</p>
+            <p className="text-xs text-muted-foreground mt-1">Total submitted</p>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Opportunities</CardTitle>
-            <Briefcase className="h-4 w-4 text-muted-foreground" />
+        <Card className="border-border/50">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Opportunities</CardTitle>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+              <Briefcase className="h-4 w-4 text-primary" />
+            </div>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold">{stats.activeOpportunities}</p>
-            <p className="text-xs text-muted-foreground">Matching your profile</p>
+            <p className="text-3xl font-bold">{stats.activeOpportunities}</p>
+            <p className="text-xs text-muted-foreground mt-1">Matching your profile</p>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Impact Score</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+        <Card className="border-border/50">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Impact Score</CardTitle>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10">
+              <TrendingUp className="h-4 w-4 text-accent" />
+            </div>
           </CardHeader>
           <CardContent>
-            <p className="text-2xl font-bold">4.8</p>
-            <p className="text-xs text-muted-foreground">Based on reviews</p>
+            <p className="text-3xl font-bold">4.8</p>
+            <p className="text-xs text-muted-foreground mt-1">Based on reviews</p>
           </CardContent>
         </Card>
       </div>
 
       {/* Quick Actions */}
-      <Card>
-        <CardHeader>
+      <Card className="border-border/50">
+        <CardHeader className="pb-4">
           <CardTitle>Quick Actions</CardTitle>
           <CardDescription>Get started with your volunteering journey</CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-4 md:grid-cols-2">
+        <CardContent className="grid gap-3 md:grid-cols-2">
           <Link href="/dashboard/opportunities">
-            <Button className="w-full bg-transparent" variant="outline">
+            <Button className="w-full h-11" variant="outline">
               <Briefcase className="mr-2 h-4 w-4" />
               Browse Opportunities
             </Button>
           </Link>
           <Link href="/dashboard/profile">
-            <Button className="w-full bg-transparent" variant="outline">
+            <Button className="w-full h-11" variant="outline">
               <Settings className="mr-2 h-4 w-4" />
               Complete Your Profile
             </Button>
@@ -130,26 +138,26 @@ export default function DashboardPage() {
       </Card>
 
       {/* Recent Activity */}
-      <Card>
-        <CardHeader>
+      <Card className="border-border/50">
+        <CardHeader className="pb-4">
           <CardTitle>Recent Activity</CardTitle>
           <CardDescription>Your latest volunteering activities</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b pb-4">
-              <div>
-                <p className="font-medium">Applied to Community Cleanup</p>
+          <div className="space-y-0">
+            <div className="flex items-center justify-between py-4 border-b border-border/50 last:border-0">
+              <div className="space-y-1">
+                <p className="font-medium text-foreground">Applied to Community Cleanup</p>
                 <p className="text-sm text-muted-foreground">2 days ago</p>
               </div>
-              <span className="rounded-full bg-accent/20 px-3 py-1 text-xs text-accent">Pending</span>
+              <span className="rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-xs font-medium text-accent">Pending</span>
             </div>
-            <div className="flex items-center justify-between border-b pb-4">
-              <div>
-                <p className="font-medium">Volunteered at Food Bank</p>
+            <div className="flex items-center justify-between py-4 border-b border-border/50 last:border-0">
+              <div className="space-y-1">
+                <p className="font-medium text-foreground">Volunteered at Food Bank</p>
                 <p className="text-sm text-muted-foreground">1 week ago</p>
               </div>
-              <span className="rounded-full bg-accent/20 px-3 py-1 text-xs text-accent">Completed</span>
+              <span className="rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-medium text-primary">Completed</span>
             </div>
           </div>
         </CardContent>

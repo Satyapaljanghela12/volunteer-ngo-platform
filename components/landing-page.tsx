@@ -1,15 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import LoginForm from "./auth/login-form"
-import SignupForm from "./auth/signup-form"
 import { Heart, Users, Briefcase, Zap } from "@/components/icons"
 
 export default function LandingPage() {
   const [authView, setAuthView] = useState<"none" | "login" | "signup">("none")
+  const router = useRouter()
 
   if (authView !== "none") {
+    // Redirect to new registration form if signup is clicked
+    if (authView === "signup") {
+      router.push("/auth/signup")
+      return null
+    }
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-background to-muted flex items-center justify-center p-4">
         <div className="w-full max-w-md">
@@ -21,11 +28,7 @@ export default function LandingPage() {
             <p className="text-muted-foreground text-sm mt-1">Connect. Volunteer. Impact.</p>
           </div>
 
-          {authView === "login" ? (
-            <LoginForm onSignupClick={() => setAuthView("signup")} />
-          ) : (
-            <SignupForm onLoginClick={() => setAuthView("login")} />
-          )}
+          <LoginForm onSignupClick={() => router.push("/auth/signup")} />
 
           <Button variant="ghost" className="w-full mt-4" onClick={() => setAuthView("none")}>
             Back to Home
@@ -50,7 +53,7 @@ export default function LandingPage() {
             <Button variant="outline" onClick={() => setAuthView("login")}>
               Sign In
             </Button>
-            <Button onClick={() => setAuthView("signup")}>Get Started</Button>
+            <Button onClick={() => router.push("/auth/signup")}>Get Started</Button>
           </div>
         </div>
       </header>
@@ -67,7 +70,7 @@ export default function LandingPage() {
               your community.
             </p>
             <div className="flex gap-4">
-              <Button size="lg" onClick={() => setAuthView("signup")}>
+              <Button size="lg" onClick={() => router.push("/auth/signup")}>
                 Explore Opportunities
               </Button>
               <Button size="lg" variant="outline" onClick={() => setAuthView("login")}>
