@@ -69,22 +69,6 @@ Accept/Reject volunteers
 
 Track volunteer participation
 
-📸 Demo & Preview
-
-👉 Live Demo: https://lnkd.in/eBrnr-He
-
-(Feel free to explore and share your feedback!)
-
-📁 Folder Structure (Example)
-/volconnect
- ├── /app
- ├── /components
- ├── /models
- ├── /api
- ├── /utils
- ├── /public
- └── README.md
-
 🔧 Environment Variables
 
 Create a .env file in the root:
