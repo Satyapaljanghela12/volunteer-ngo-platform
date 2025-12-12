@@ -1,105 +1,254 @@
-VolConnect — Smart Volunteering Platform
+VolConnect — Smart Volunteering & NGO Collaboration Platform
 
-VolConnect is a digital platform designed to connect Volunteers with Verified NGOs based on skills, interests, location, and availability — making the entire volunteering journey effortless, transparent, and impactful.
+VolConnect is a full-stack platform designed to connect Volunteers with Verified NGOs based on their skills, interests, location, and availability.
+The platform’s purpose is to make volunteering structured, trustworthy, and efficient while enabling NGOs to manage opportunities and track impact smoothly.
 
-This platform is built to streamline volunteering for individuals and simplify opportunity management for NGOs.
+Table of Contents
 
-🚀 Features
-👥 For Volunteers
+Overview
 
-🔎 Discover opportunities tailored to your skills & interests
+Key Features
 
-⚡ One-click apply to any opportunity
+System Architecture
 
-📊 Track application status in real time
+Tech Stack
 
-🗂️ Build a volunteering portfolio
+Core Workflows
 
-🏅 Earn certificates after completion
+Modules and Screens
 
-⏱️ Track volunteering hours & impact
+Environment Setup
 
-🏢 For NGOs
+Installation
 
-📝 Post opportunities in minutes
+Folder Structure
 
-👀 Review volunteer applications with ease
+API Overview
 
-✔ Accept/Reject volunteers from a simple dashboard
+Security Architecture
 
-📌 Manage multiple projects effortlessly
+Performance Considerations
 
-⏱️ Track volunteer hours & project impact
+Roadmap
 
-🛠️ Tech Stack
-Frontend + Backend
+Contributing
 
-Next.js (Full-stack framework)
+License
 
-Tailwind CSS for clean, modern UI
+Contact
 
-JWT Authentication using HTTP-only cookies
+1. Overview
 
-Database
+VolConnect provides a streamlined experience for individuals looking to volunteer and NGOs looking to onboard contributors.
+The platform emphasizes transparency, role-based access, and measurable impact tracking.
 
-MongoDB
+Live Demo: https://lnkd.in/eBrnr-He
 
-Mongoose ORM
+2. Key Features
+Volunteer Features
 
-🔄 Core Workflows Implemented
-✔ Volunteer Side
+Opportunity discovery based on skills, interests, and availability
 
-Account Signup/Login
+One-click application to volunteering roles
 
-Profile setup (skills, interests, availability)
+Real-time tracking of application status
 
-Browse & apply for NGO opportunities
+Volunteering portfolio generated automatically
 
-Track application statuses
+Certificate generation after successful completion
 
-Track contribution hours + impact
+Hours and impact tracking dashboard
 
-✔ NGO Side
+NGO Features
 
-Create & manage opportunities
+Create, publish, and manage volunteering opportunities
 
-Review volunteer applications
+View applicant profiles
 
-Accept/Reject volunteers
+Accept or reject volunteers
 
-Track volunteer participation
+Manage multiple projects from a unified dashboard
 
-🔧 Environment Variables
+Track hours and performance of volunteers
+Authentication is handled via JWT stored in secure HTTP-only cookies.
+Separation of concerns is maintained across UI, API, and database layers.
 
-Create a .env file in the root:
+3. Tech Stack
 
-MONGO_URI=your_mongo_connection_string
+Frontend: Next.js, React, Tailwind CSS
+Backend: Next.js API Routes, Node.js
+Database: MongoDB with Mongoose
+Authentication: JWT (HTTP-only cookies)
+Deployment: Vercel / Render with MongoDB Atlas
+
+4. Core Workflows
+Volunteer Workflow
+
+Register or login
+
+Create a detailed profile
+
+Browse relevant opportunities
+
+Apply to an opportunity
+
+Track application status
+
+Participate and complete tasks
+
+Receive certificate and view portfolio updates
+
+NGO Workflow
+
+Login via NGO account
+
+Publish new opportunities
+
+View and evaluate applicants
+
+Accept or reject volunteers
+
+Track ongoing volunteer participation
+
+View project-level impact reports
+
+5. Modules and Screens
+Volunteer Modules
+
+Dashboard
+
+Profile Management
+
+Opportunity Listing
+
+Opportunity Details
+
+Application Tracking
+
+Portfolio
+
+Certificates
+
+NGO Modules
+
+Opportunity Dashboard
+
+Create / Edit Opportunity
+
+Applicant Management
+
+Volunteer Tracking
+
+Project Reports
+
+6. Environment Setup
+
+Create a .env file at the root of the project with the following:
+
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
-NEXT_PUBLIC_BASE_URL=your_app_url
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
-🚀 Getting Started
-1️⃣ Clone the repo
+7. Installation
 git clone https://github.com/yourusername/volconnect.git
 cd volconnect
-
-2️⃣ Install dependencies
 npm install
-
-3️⃣ Start the development server
 npm run dev
 
 
-Your app will be live at:
+Local development server runs at:
 http://localhost:3000
 
-🤝 Contributing
+8. Folder Structure
+/volconnect
+ ├── app/                 # Next.js app router
+ ├── components/          # Reusable UI components
+ ├── api/                 # Backend routes
+ ├── models/              # MongoDB schemas
+ ├── lib/                 # Utilities and helpers
+ ├── middleware/          # Authentication middleware
+ ├── public/              # Static files
+ └── README.md
 
-Contributions are welcome!
-If you'd like to improve features, collaborate, or report issues:
-➡ Open an Issue
-➡ Submit a Pull Request
-➡ Or reach out directly!
+9. API Overview
+Authentication
 
-🌟 Vision
+POST /api/auth/signup
 
-VolConnect aims to create a digital ecosystem for social impact, where discovering, contributing, and managing volunteer work becomes smart, seamless, and accessible to everyone.
+POST /api/auth/login
+
+Volunteers
+
+GET /api/opportunities
+
+POST /api/apply
+
+GET /api/applications
+
+NGOs
+
+POST /api/opportunities
+
+GET /api/opportunities/:id/applicants
+
+PATCH /api/applications/:id
+
+10. Security Architecture
+
+JWT authentication using HTTP-only cookies
+
+Password hashing using bcrypt
+
+Role-based access (Volunteer, NGO)
+
+Input sanitization on all API endpoints
+
+Minimal data exposure through controlled response formatting
+
+11. Performance Considerations
+
+Server-Side Rendering and Static Rendering for optimal performance
+
+MongoDB indexing for faster data queries
+
+Component-level code splitting
+
+Minimal external dependencies
+
+Efficient state management using SWR and server data fetching
+
+12. Roadmap
+
+Planned future enhancements include:
+
+Location-based recommendation engine
+
+Notification system (email / in-app)
+
+Fully responsive mobile-first redesign
+
+Volunteer leaderboards and gamification
+
+Admin panel for system-wide monitoring
+
+Test automation using Jest and Cypress
+
+Optional React Native mobile application
+
+13. Contributing
+
+Contributions are welcome.
+To contribute:
+
+Fork the repository
+
+Create a feature branch
+
+Commit changes with clear messages
+
+Open a pull request
+
+14. License
+
+This project is released under the MIT License.
+You are free to use, modify, and distribute with attribution.
